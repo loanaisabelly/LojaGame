@@ -6,6 +6,9 @@ import { Produto } from './Produto/entities/produto.entity';
 import { ProdutoModule } from './Produto/produto.module';
 import { Categoria } from './Categoria/entities/categoria.entity';
 import { CategoriaModule } from './Categoria/categoria.module';
+import { AuthModule } from './auth/entities/auth.module';
+import { UsuarioModule } from './Usuario/usuario.module';
+import { Usuario } from './Usuario/entitites/usuario.entity';
 
 @Module({
   imports: [
@@ -16,12 +19,14 @@ import { CategoriaModule } from './Categoria/categoria.module';
       username: 'root',
       password: '1234',
       database: 'db_LojaoNerd',
-      entities: [Produto, Categoria],
+      entities: [Produto, Categoria, Usuario],
       synchronize: true,
       logging: true,
     }),
     ProdutoModule,
     CategoriaModule,
+    AuthModule,
+    UsuarioModule,
   ],
   controllers: [AppController],
   providers: [AppService],

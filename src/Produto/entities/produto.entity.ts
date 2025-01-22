@@ -9,6 +9,7 @@ import { Entity } from 'typeorm/decorator/entity/Entity';
 import { NumericTransformer } from '../../util/numerictransformer';
 import { IsNotEmpty, IsNumber, IsPositive } from 'class-validator';
 import { Categoria } from '../../Categoria/entities/categoria.entity';
+import { Usuario } from '../../Usuario/entitites/usuario.entity';
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
@@ -47,4 +48,17 @@ export class Produto {
     onDelete: 'CASCADE',
   })
   Categoria: Categoria;
+ 
+
+@ManyToOne(() => Usuario, (usuario) => usuario.produto, {
+    onDelete: "CASCADE"
+})
+usuario: Usuario
+
+
+
+
+
+
+
 }
